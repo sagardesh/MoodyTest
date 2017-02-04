@@ -46,12 +46,17 @@ namespace MoodyTest
             return (n * q);
         }
 
+        private static double Compute(double b, double i,double m,double interst)
+        {
+            return (b * Math.Pow((1 + (i - interst)), m));
+        }
+
         private static double[] ComputeBonds(double b, double i, double m)
         {
             double[] result = new double[3];
-            result[0] = (b * Math.Pow((1 + (i - 0.01)), m));
-            result[1] = (b * Math.Pow((1 + (i - 0.02)), m));
-            result[2] = (b * Math.Pow((1 + (i - 0.03)), m));
+            result[0] = Compute(b, i, m, 0.01);
+            result[1] = Compute(b, i, m, 0.02);
+            result[2] = Compute(b, i, m, 0.03);
             return result;
         }
     }
